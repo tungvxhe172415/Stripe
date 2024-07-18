@@ -5,8 +5,8 @@ import json
 import os
 app = Flask(__name__)
 
-app.config['STRIPE_PUBLIC_KEY'] = 'pk_test_51Pdl3rJHbjFDVzJgSnx1vgAhDpHRwg0bvxADlGWVp1hgAfUhtBr9WHvUcOtkvccwwe7zvRcQsw5EH2Dsj6z1PQD100sSri9LN6'
-app.config['STRIPE_SECRET_KEY'] = 'sk_test_51Pdl3rJHbjFDVzJgt095OKZve22d79CS5wd21eWMod0jeNvAV5tQoVnY7qX5jb3BbYGDzN7xPkA7ZGsdiYwqk1Nq006E5hRJrn'
+app.config['STRIPE_PUBLIC_KEY'] = 'YOUR_PUBLIC_KEY' #GET ON STRIP DEVELOPER
+app.config['STRIPE_SECRET_KEY'] = 'YOUR_SECRET_KEY'
 
 # app.config['STRIPE_PUBLIC_KEY'] = 'pk_test_51PdkJHC50r8w1WypFckYO40ufNnO8OAx3fpNquCGGY7V1RhlX3jhxchE3bqLQI6WBHcb885uTOYwFQDPzw1xjaDR00oIdIYEe1'
 # app.config['STRIPE_SECRET_KEY'] = 'sk_test_51PdkJHC50r8w1Wyp29t231TiZbKDcIVZlS0FEPPLiVP8gICZxBBIeXRSSYcvKMdtMihSdlVzfClkBlA6BHlujTC200uXBzjknw'
@@ -102,7 +102,7 @@ def stripe_webhook():
         abort(400)
     payload = request.get_data()
     sig_header = request.environ.get('HTTP_STRIPE_SIGNATURE')
-    endpoint_secret = 'whsec_134ff31d098af893ac7486a59be5a9d6fdff7eeedaf2593655aff044623d59db'
+    endpoint_secret = 'whsec_134ff31d098af893ac7486a59be5a9d6fdff7eeedaf2593655aff044623d59db' #CHAGE IT BY RUN COMMAND "stripe listen --forward-to 127.0.0.1:5000/stripe_webhook" WILL SHOW YOU
     event = None
 
     try:
